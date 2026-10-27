@@ -1,1 +1,21 @@
-node_modules
+# Avhengigheter
+node_modules/
+.pnpm-store/
+
+# Bygg-mapper
+.next/
+out/
+dist/
+build/
+
+# Miljøvariabler og hemmeligheter (VIKTIG!)
+.env
+.env.local
+.env.production
+.env.development
+
+# Operativsystem- og verktøyfiler
+.DS_Store
+*.pem
+.idea/
+.vscode/
