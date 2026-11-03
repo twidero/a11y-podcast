@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { cache } from 'react'
 import { client } from '@/sanity/client'
 import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
@@ -13,13 +15,51 @@ const SINGLE_EPISODE_QUERY = `*[_type == "episode" && slug.current == $slug][0]{
   transcript
 }`
 
+const getEpisode = cache(async (slug: string) =>
+    client.fetch(SINGLE_EPISODE_QUERY, { slug }),
+)
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+    const { slug } = await params
+    const episode = await getEpisode(slug)
+
+    if (!episode) {
+        return {
+            title: 'Episode not found',
+        }
+    }
+
+    return {
+        title: `${episode.title} | A11y Activist Podcast`,
+        description: episode.summary,
+        alternates: {
+            canonical: `/episodes/${slug}`,
+        },
+        openGraph: {
+            title: episode.title,
+            description: episode.summary,
+            type: 'article',
+            publishedTime: episode.pubDate,
+        },
+        twitter: {
+            card: 'summary',
+            title: episode.title,
+            description: episode.summary,
+        },
+    }
+}
+
 export default async function EpisodePage({
     params
 }: {
     params: Promise<{ slug: string }>
 }) {
     const { slug } = await params
-    const episode = await client.fetch(SINGLE_EPISODE_QUERY, { slug })
+    const episode = await getEpisode(slug)
 
     if (!episode) {
         return (
