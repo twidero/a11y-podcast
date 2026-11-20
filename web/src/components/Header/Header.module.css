@@ -1,0 +1,37 @@
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-size-6);
+  margin-bottom: var(--ds-size-6)
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-size-6);
+  list-style: none;
+  font-size: var(--ds-font-size-6);
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  color: var(--ds-color-neutral-text-default);
+  text-decoration: none;
+  font-weight: 500;
+  padding-block: var(--ds-size-1);
+}
+
+.navLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Tydelig fokusmarkering i tråd med Designsystemet og WCAG */
+.navLink:focus-visible {
+  outline: 3px solid var(--ds-color-focus-outer);
+  outline-offset: 2px;
+  border-radius: var(--ds-border-radius-sm);
+}
