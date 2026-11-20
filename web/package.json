@@ -14,8 +14,8 @@
     "@digdir/designsystemet-theme": "^1.10.0",
     "@portabletext/react": "^8.0.1",
     "@sanity/image-url": "^2.1.1",
-    "next": "16.3.5",
-    "next-sanity": "^13.3.4",
+    "next": "^16.4.6",
+    "next-sanity": "^11.6.13",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
@@ -26,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "eslint-formatter-compact": "^9.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
