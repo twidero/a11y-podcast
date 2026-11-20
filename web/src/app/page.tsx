@@ -39,7 +39,7 @@ export default async function Home() {
       {episodes.length === 0 ? (
         <p>No episodes found.</p>
       ) : (
-        <ul className="pace-y-6 list-none p-0">
+        <ul className="space-y-6 list-none p-0">
           {episodes.map((episode: Episode) => (
             <li key={episode._id} className="border-b border-subtle pb-6">
               <article>

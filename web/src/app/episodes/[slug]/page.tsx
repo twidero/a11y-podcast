@@ -77,14 +77,15 @@ export default async function EpisodePage({
             </Link>
 
             <article>
-                <time className="text-sm font-medium text-gray-500">
-                    {new Date(episode.pubDate).toLocaleDateString('no-NO', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric'
-                    })}
-                </time>
-
+                {episode.pubDate && (
+                    <time dateTime={episode.pubDate} className="text-sm font-medium text-gray-500" >
+                        {new Date(episode.pubDate).toLocaleDateString('no-NO', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        })}
+                    </time>
+                )}
                 <h1 className="text-3xl sm:text-4xl font-extrabold mt-1 mb-4 tracking-tight">
                     {episode.title}
                 </h1>
