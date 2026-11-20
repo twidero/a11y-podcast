@@ -34,7 +34,7 @@ export async function generateMetadata({
     }
 
     return {
-        title: `${episode.title} | A11y Activist Podcast`,
+        title: `${episode.title} | A11y Activists Podcast`,
         description: episode.summary,
         alternates: {
             canonical: `/episodes/${slug}`,
@@ -71,7 +71,7 @@ export default async function EpisodePage({
     }
 
     return (
-        <main className="max-w-3xl mx-auto px-4 py-12">
+        <main>
             <Link href="/" className="text-sm font-semibold text-blue-600 hover:underline mb-8 inline-block">
                 ← Tilbake til alle episoder
             </Link>
